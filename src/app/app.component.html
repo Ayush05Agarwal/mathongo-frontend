@@ -1,0 +1,38 @@
+<!-- <div> hello</div> -->
+<div *ngIf="isValid;else other_content">
+    <button (click)="signInWithGoogle()">Sign in</button>
+    <!-- content here ... -->
+</div>
+
+<ng-template #other_content>
+
+</ng-template>
+<!-- <div *ngIf="isVerified">
+    <button (click)="sendOtp()"> send otp </button>
+    content here ...
+</div> -->
+<div *ngIf="isLogin">
+    <h1>hello</h1>
+     <!-- <button (click)="sendotp()"> send otp </button> --> -->
+    <div>
+        <h4>{{ info.name }}</h4>
+        <p>{{  info.email }}</p>
+      </div>
+      <button (click)="signOut()"> logout </button>
+</div> 
+<div *ngIf="entermobile">
+<div [formGroup]="otpform">
+    <input formControlName="mobile" type="text" required>
+    <button (click)="sendOtp()">Send otp</button>
+</div>
+</div>
+<div *ngIf="enterotp">
+<!-- <div [formGroup]="otpform"> -->
+    <!-- <input formControlName="mobile" type="text" required> -->
+    <button (click)="resendOtp()">Send otp</button>
+<!-- </div> -->
+<div [formGroup]="otpvalidform">
+    <input formControlName="otp" type="text" required>
+    <button (click)="verifyOtp()">Verify Otp</button>
+</div>
+</div>
